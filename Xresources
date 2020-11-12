@@ -1,0 +1,8 @@
+!Color
+
+URxvt*background: black 
+URxvt*foreground: white
+!font
+
+URxvt*font: xft:SourceCodePro-Regular:size=12:antialias=true
+URxvt*boldfont: xft:SourceCodePro-Bold:size:12:antialias=true
