@@ -16,16 +16,20 @@ useradd -m <yourusername>
 EDITOR=vim visudo
 
 #edit and add newly added user into sudo group
-
+#exit chroot env
 #internet connection
 systemctl enable --now systemd-networkd systemd-resolved iwd
+networkctl status -a #get the station name (usually wlan0)
 vi /etc/systemd/network/20-wireless.network
 #add exact the follwowing parm:
 [Match]
-Name=wlan0 #run networkctl status -a for exact station
+Name=wlan0 
 [Network]
 DHCP=yes
-#save and exit 
+#save and exit
+systemctl restart systemd-networkd
+iwctl
+#enter network parms
 #git clone and copy all the file on repo to the respective places
 #~/.Xinitrc
 #~/.Xresources
@@ -33,3 +37,7 @@ DHCP=yes
 #~/.vimrc
 #~/.config/bspwm/bspwmrc
 #~/.config/sxhkd/sxhkdrc
+#config preferd keyboard shortcut, monitors, screens
+#run X server
+startx
+
