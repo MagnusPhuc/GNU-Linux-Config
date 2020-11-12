@@ -14,10 +14,8 @@ bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
-#external_monitor=$(xrandr --query | grep 'HDMI-1')
-#if[[$external_monitor = *connected* ]];  then
-#	xrandr --output HDMI-1 --primary --mode 1920x1080 --rorate normal --output eDP-1 --mode 1920x1080 --rorate normal --right-of HDMI-1
-#fi
+if[[$external_monitor = *connected* ]];  then
+	xrandr --output HDMI1 --primary --mode 1920x1080 --rotate normal --output eDP1 --mode 1920x1080 --rotate normal --right-of HDMI1
 bspc monitor HDMI1 -d I II III IV
 bspc monitor eDP1  -d  V VI VII VIII 
 xrdb -load ~/.Xresources
